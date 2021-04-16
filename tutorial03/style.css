@@ -1,0 +1,81 @@
+.container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 0.2fr 1fr 1fr;
+   grid-template-areas:
+   "a . b b"
+   "c d e f"
+   "g g g f";
+   min-height: 100vh;
+   grid-column-gap: 20px;
+   grid-row-gap: 20px;
+   padding: 20px;
+   
+}
+article, aside, section, main, section div{
+   display:flex;
+   font-family: "Arial";
+   justify-content: center;
+   align-items: center;
+}
+.menu1 {
+   grid-area: a;
+   background-color: #DE0B7E;
+   min-height: 40px;
+}
+.menu2 {
+   grid-area: b;
+   background-color: #FFF100;
+   min-height: 40px;
+}
+
+.card1 { grid-area: c; background-color: #01A4CF;}
+.card2 { grid-area: d;background-color: #01A4CF;}
+.card3 { grid-area: e;background-color: #01A4CF;}
+
+main { 
+   grid-area: g;
+   background-color: #01A4CF ;
+}
+aside { 
+   grid-area: f;
+   background-color: darkgray;
+}
+
+@media (max-width: 1024px) {
+   /* tablet layout here */
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.2fr 0.3 fr 1fr 1fr 1fr;
+      grid-template-areas:
+      "a b"
+      "f f"
+      "c d"
+      "e e"
+      "g g";
+      padding: 10px;
+      grid-row-gap: 10px;
+      grid-column-gap: 10px;
+   }
+}
+@media (max-width: 480px) {
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+      "a ."
+      "b b"
+      "c c"
+      "d d"
+      "e e"
+      "g g";
+   }
+   article, main {
+      min-height: 30vh;
+   }
+   aside {
+      display:none;
+   }
+}
