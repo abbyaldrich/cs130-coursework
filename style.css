@@ -3,19 +3,38 @@
     box-sizing: border-box;
 }
 
+@import url(
+    'https://fonts.googleapis.com/css2?family=Hind:wght@300;500&family=Roboto&display=swap');
+
+header {
+    font-family:'Hind', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    font-family:'Hind', sans-serif; 
+    margin: 15px;
+}
+
 body {
     margin: 0px;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 header, section {
-    padding: 20px;
+    padding: 15px;
 }
 p, li {
     line-height: 1.5em;
 }
 
+#homework, #tutorials {
+    background-color:#41E8F0;
+    border-bottom: solid 1px white;
+}
+
+
 #inspiration {
-    background-color: #F0F0F0;
+    background-color: #00CBD6;
     padding-top: 40px;
     padding-bottom: 40px;
 }
