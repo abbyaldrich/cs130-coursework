@@ -29,20 +29,20 @@ nec, per et autem viris, sit in luptatum platonem. Sea diam reprimique ad,
 aliquip meliore constituto has et.</p>`;
 
 const chapter1 = () => {
-   document.querySelector(".content").innerHTML = ch1_text;
+   alert('load chapter 1');
 };
 
 const chapter2 = () => {
-   document.querySelector(".content").innerHTML = ch2_text;
+   alert('load chapter 2');
 };
 
 const chapter3 = () => {
-   document.querySelector(".content").innerHTML = ch3_text;
+   alert('load chapter 3');
 };
 
 
-
-document.querySelector("#ch1").onclick = chapter1;
-document.querySelector("#ch2").onclick = chapter2;
-document.querySelector("#ch3").onclick = chapter3;
-
+/*
+document.querySelector(???).onclick = chapter1;
+document.querySelector(???).onclick = chapter2;
+document.querySelector(???).onclick = chapter3;
+*/
