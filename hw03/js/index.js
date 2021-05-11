@@ -52,12 +52,30 @@ const showImage = (ev) => {
     document.querySelector('.featured_image').style.backgroundImage = elem.style.backgroundImage;
 };
 
-// const showNext = (ev) => {
-//     currentIndex += 1;
-//     console.log("currentIndex:", currentIndex);
-//     document.querySelector('.featured_image').style.backgroundImage 
+const showNext = (ev) => {
+    currentIndex += 1;
+    console.log("currentIndex:", currentIndex);
+    if (currentIndex >= images.length) {
+        currentIndex = 0; 
+    };
+    var image;
+    image = images[currentIndex];
+    document.querySelector('.featured_image').style.backgroundImage = `url("${image}")`;
+};
 
-// };
+const showPrev = (ev) => {
+    currentIndex -= 1; 
+    console.log("currentIndex:", currentIndex);
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    };
+    var image;
+    image = images[currentIndex];
+    document.querySelector('.featured_image').style.backgroundImage = `url("${image}")`;
+    
+};
+   
+
 
 const imageElements = document.querySelectorAll('.image');
 for (const elem of imageElements) {
@@ -66,3 +84,4 @@ for (const elem of imageElements) {
 
 document.querySelector('.next').onclick = showNext;
 document.querySelector('.featured_image').onclick = showNext;
+document.querySelector('.prev').onclick = showPrev;
