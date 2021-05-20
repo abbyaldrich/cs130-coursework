@@ -144,7 +144,7 @@ header .fa-search {
    *********************************************************** */
 
 #tracks, #artist, #albums {
-    border: dotted 1px #ccc;
+    /* border: dotted 1px #ccc; */
     min-height: 100px;
 }
 

@@ -24,10 +24,10 @@ const getTracks = (term) => {
 };
 
 const getAlbums = (term) => {
-    console.log(`
-        get albums from spotify based on the search term
-        "${term}" and load them into the #albums section 
-        of the DOM...`);
+    url = baseURL + "?type=album&q=" + term;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => displayAlbums(data));
 };
 
 const getArtist = (term) => {
@@ -68,12 +68,12 @@ const displayArtist = (art) => {
 };  
 
 const displayTracks = (tr) => {
-    if (tr === null){
+    document.querySelector('#tracks').innerHTML = ""; 
+    if (tr[0] == null){
         document.querySelector("#tracks").innerHTML = "no tracks found";
     } else { 
         const lentracks = tr.length;
-        for (t =0; t < Math.min(5,lentracks); t++){
-            document.querySelector('#tracks').innerHTML = ""; 
+        for (var t=0; t < Math.min(5,lentracks); t++){
             template = 
                 `<section class="track-item preview" data-preview-track="${tr[t].preview_url}">
                         <img src="${tr[t].album.image_url}">
@@ -83,7 +83,41 @@ const displayTracks = (tr) => {
                         <p>${tr[t].artist.name}</p>
                     </div>
                 </section>`;
-        document.querySelector('#tracks').innerHTML = template; 
+        document.querySelector('#tracks').innerHTML += template; 
         }
     }
 };
+
+const displayAlbums = (alb) => {
+    document.querySelector('#albums').innerHTML = "";
+    if (alb[0] == null) {
+        document.querySelector("#albums").innerHTML = "no albums found";
+    } else {
+        const lenalbums = alb.length
+        for (var t=0; t <= lenalbums; t++){
+            template = 
+            `<section class="album-card" id="${alb[t].id}">
+            <div>
+                <img src="${alb[t].image_url}">
+                <h3>${alb[t].name}</h3>
+             <div class="footer">
+                    <a href="${alb[t].spotify_url}" target="_blank">
+                    view on spotify
+                    </a>
+             </div>
+            </div>
+         </section>`;
+        document.querySelector('#albums').innerHTML += template;
+        }
+    }
+};
+
+
+// const playSong = (ev) => {
+//     console.log(ev);
+//     constsourceElement = ev.currentTarget; 
+//     audioPlayer.setAudioFile(preview_url);
+//     audioPlayer.play();
+// }
+
+// document.querySelector('.track-item-preview').onclick = playSong; 
