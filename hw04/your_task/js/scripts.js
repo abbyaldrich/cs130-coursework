@@ -49,6 +49,7 @@ document.querySelector('#search').onkeyup = (ev) => {
 
 
 const displayArtist = (art) => {
+    document.querySelector('#artist').innerHTML = "";
     if (art == null) {
         document.querySelector("#artist").innerHTML = "no artist found";
     } else {
@@ -75,7 +76,7 @@ const displayTracks = (tr) => {
         const lentracks = tr.length;
         for (var t=0; t < Math.min(5,lentracks); t++){
             template = 
-                `<section class="track-item preview" data-preview-track="${tr[t].preview_url}">
+                `<section class="track-item preview" data-preview-track="${tr[t].preview_url}" onclick="playTrack(event);">
                         <img src="${tr[t].album.image_url}">
                         <i class="fas play-track fa-play" aria-hidden="true"></i>
                         <div class="label">
@@ -94,7 +95,7 @@ const displayAlbums = (alb) => {
         document.querySelector("#albums").innerHTML = "no albums found";
     } else {
         const lenalbums = alb.length
-        for (var t=0; t <= lenalbums; t++){
+        for (var t=0; t < lenalbums; t++){
             template = 
             `<section class="album-card" id="${alb[t].id}">
             <div>
@@ -113,11 +114,20 @@ const displayAlbums = (alb) => {
 };
 
 
-// const playSong = (ev) => {
-//     console.log(ev);
-//     constsourceElement = ev.currentTarget; 
-//     audioPlayer.setAudioFile(preview_url);
-//     audioPlayer.play();
-// }
+const playTrack = (ev) => {
+    const elem = ev.currentTarget;
+    const previewURL = elem.dataset.previewTrack;
+    console.log(previewURL);
+    if (previewURL) {
+        audioPlayer.setAudioFile(previewURL);
+        audioPlayer.play();
+    } else {
+        console.log('no preview available')
+    }
+    document.querySelector('footer .track-item').innerHTML = elem.innerHTML;
+};
 
-// document.querySelector('.track-item-preview').onclick = playSong; 
+
+ 
+
+
