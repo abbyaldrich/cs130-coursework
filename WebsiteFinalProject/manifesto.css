@@ -13,3 +13,22 @@
 .manifesto {
     width: 1260px;
 }
+
+@media screen and (max-width: 1024px) {
+    .manifesto {
+        width: 1000px;
+    }
+
+    .man-description {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .manifesto {
+        width: 680px;
+    }
+    .man-description {
+        width: 580px;
+    }
+}

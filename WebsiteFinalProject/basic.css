@@ -52,3 +52,27 @@ a:hover {
     opacity: 0.5;
 }
 
+@media screen and (max-width: 1024px) {
+    body {
+        display: grid; 
+        grid-template-rows: 100px auto;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "menu"
+            "page";
+        overflow-x: hidden;
+    }
+    aside {
+        width: 100vw;
+    }
+    main {
+        width: 100%;
+    }
+    aside>ul {
+        display: flex;
+    }
+    li {
+        margin-right: 15px;
+    }
+}
+
